@@ -1,0 +1,33 @@
+{
+  "shadow": {
+    "elements": [
+      {
+        "name": "setNombre",
+        "type": "editable",
+        "public": true,
+        "selector": {
+          "css": "input .slds-input[name='Nombre']"
+
+        }
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": "set",
+      "compose": [
+        {
+          "element": "setNombre",
+          "apply": "clearAndType",
+          "args": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}

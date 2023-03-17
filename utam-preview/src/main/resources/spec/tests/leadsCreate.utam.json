@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "selector": {
+    "css": "body"
+  },
+  "shadow": {
+
+    "elements": [
+      {
+        "name": "inputName",
+        "type": "editable",
+        "public": true,
+        "selector": {
+          "css": ".slds-input[name='%s']",
+          "args": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        }
+
+      }
+
+    ]
+  }
+
+}
+
