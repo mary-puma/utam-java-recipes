@@ -15,6 +15,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utam.aura.pageobjects.ContainerManager;
 import utam.core.element.Element;
+import utam.core.framework.base.PageObject;
+import utam.core.framework.base.RootPageObject;
+import utam.core.selenium.element.LocatorBy;
 import utam.force.pageobjects.Component;
 import utam.force.pageobjects.LightningModalBody;
 import utam.force.pageobjects.ListViewManagerHeader;
@@ -30,13 +33,18 @@ import utam.lightning.pageobjects.impl.AccordionSectionImpl;
 import utam.records.pageobjects.BaseRecordForm;
 import utam.records.pageobjects.LwcRecordLayout;
 import utam.records.pageobjects.RecordLayoutItem;
+
+import utam.tests.pageobjects.ForceAloha;
 import utam.tests.pageobjects.LeadsCreate;
+import utam.tests.pageobjects.LeadsInut;
+import utam.tests.pageobjects.UtamChild;
 import utam.tests.pageobjects.impl.LeadsCreateImpl;
 import utam.utils.salesforce.RecordType;
 import utam.utils.salesforce.TestEnvironment;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -81,13 +89,9 @@ public class RecordCreationTests extends SalesforceWebTestBase {
 
       openRecordModal(RecordType.Lead);
       LeadsCreate leadsCreate = from(LeadsCreate.class);
-      leadsCreate.getInputName("kevin");
+     ForceAloha ventasFrame =getDomDocument().enterFrameAndLoad(leadsCreate.getPreviewFrame(),ForceAloha.class);
 
-
-      //getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-      //leadsCreate.waitForSuccess();
-      //leadsCreate.getInputName("kevin");
-      //leadsCreate.getTodoInput().set("mary");
+     ventasFrame.waitForPageNewLead();
 
 
 
@@ -96,27 +100,22 @@ public class RecordCreationTests extends SalesforceWebTestBase {
 
 
 
-      //Assert.assertEquals(var.getValue(),"Kevin");
 
-      //leadsCreate.getInput("Nombre").clearAndType("Kevin");
-    /*log("Access record form item by index");
-    RecordLayoutItem item = recordLayout.getItem(1, 2, 1);
 
-    log("Enter account name");
-    final String accountName = "Utam";
-    item.getTextInput().setText(accountName);
+      //List<LeadsInut> leadsCreateInputName =leadsCreate.getSlotWithUnknownContent("flowruntime-base-section.slds-wrap>flowruntime-screen-field",LeadsInut.class);
+      //leadsCreate.waitForPageNewLead();
+      //leadsCreate.setName("mary");
 
-    log("Save new record");
-    recordForm.clickFooterButton("Save");
-    recordFormModal.waitForAbsence();
 
-    log("Load Accounts Record Home page");
-    from(RecordHomeFlexipage2.class);*/
   }
+    private <T extends CompatibilityTests.MyExternalCompatiblePageObject, S extends PageObject>
+    S getUtamInsideCompatible(T externalPageObject, Class<S> utamPageObject, String cssStr) {
+        return loader.create(externalPageObject, utamPageObject, LocatorBy.byCss(cssStr));
+    }
 
 
   @AfterTest
   public final void tearDown() {
-    //quitDriver();
+    quitDriver();
   }
 }

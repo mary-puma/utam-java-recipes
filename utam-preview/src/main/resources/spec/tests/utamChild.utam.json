@@ -7,6 +7,14 @@
         "css": "[data-navbar-id='grammar']"
       },
       "type": "clickable"
+    },
+    {
+      "public": true,
+      "name": "dowloandMenuItem",
+      "selector": {
+        "css": "[data-navbar-id='downloads']"
+      },
+      "type": "clickable"
     }
   ]
 }

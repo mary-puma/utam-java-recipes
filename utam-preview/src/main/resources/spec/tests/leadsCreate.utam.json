@@ -1,29 +1,21 @@
 {
-  "root": true,
+  "root" : true,
   "selector": {
-    "css": "body"
+    "css": "force-aloha-page"
   },
-  "shadow": {
 
+  "shadow": {
     "elements": [
       {
-        "name": "inputName",
-        "type": "editable",
+        "name": "previewFrame",
         "public": true,
+        "type": "frame",
         "selector": {
-          "css": ".slds-input[name='%s']",
-          "args": [
-            {
-              "name": "name",
-              "type": "string"
-            }
-          ]
+          "css": "[title='accessibility title']"
         }
-
       }
-
     ]
   }
-
 }
+
 

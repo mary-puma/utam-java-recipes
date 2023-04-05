@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet"
+  },
+  "elements": [
+    {
+      "type": "container",
+      "name": "inputFieldContainer",
+      "public": true,
+      "selector": {
+        "css": "[slot='inputField']"
+      }
+    }
+  ]
+}

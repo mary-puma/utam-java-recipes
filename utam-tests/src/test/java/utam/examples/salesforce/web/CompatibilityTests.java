@@ -48,6 +48,8 @@ public class CompatibilityTests extends UtamWebTestBase {
     ScopePageObject scopePageObject = new ScopePageObject(getDriver());
     UtamChild utamChild = getUtamInsideCompatible(scopePageObject, UtamChild.class, ".menu");
     assert utamChild.getGrammarMenuItem() != null;
+    assert utamChild.getDowloandMenuItem() != null;
+
   }
 
   @AfterTest

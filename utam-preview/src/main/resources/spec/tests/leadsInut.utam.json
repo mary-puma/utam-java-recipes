@@ -1,0 +1,65 @@
+{
+
+    "elements": [
+      {
+        "name": "boxName",
+        "selector": {
+          "css": ".slds-input[name='Nombre']"
+        },
+        "type": "editable"
+      },
+      {
+        "name": "nameTitle",
+        "selector": {
+          "css": "span .slds-text-heading_small"
+        }
+      }
+    ],
+
+  "methods": [
+
+    {
+      "name": "setName",
+      "compose": [
+        {
+          "element": "boxName",
+          "apply": "clearAndType",
+          "args": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitForPageNewLead",
+      "compose": [
+        {
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "nameTitle",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Boton Nuevo Lead"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

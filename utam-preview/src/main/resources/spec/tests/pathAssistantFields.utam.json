@@ -1,0 +1,61 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "author" : "mary",
+    "text" : [
+      "Selector: .runtime_sales_pathassistantPathAssistantFields.",
+      "prueba"
+    ]
+  },
+  "elements" : [
+    {
+      "name" : "camposClave",
+      "public" : true,
+      "selector" : {
+        "css" : ".slds-form-element__control.slds-grid.itemBody",
+        "returnAll" : true
+      }
+    },
+    {
+      "name": "nameTitle",
+      "public": true,
+      "selector": {
+        "css": ".runtime_sales_pathassistantPathAssistantFields h2"
+      }
+    }
+
+
+  ],
+  "methods" : [
+    {
+      "name": "waitForStage",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "nameTitle",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Campos clave"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

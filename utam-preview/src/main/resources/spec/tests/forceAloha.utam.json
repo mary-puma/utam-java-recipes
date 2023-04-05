@@ -1,0 +1,76 @@
+{
+  "root" : true,
+  "selector" : {
+    "css" : "body"
+  },
+  "beforeLoad": [
+    {
+      "element": "root",
+      "apply": "waitFor",
+      "args": [
+        {
+          "type": "function",
+          "predicate": [
+            {
+              "element": "root",
+              "apply": "containsElement",
+              "args": [
+                {
+
+                  "type": "locator",
+                  "value": { "css": "#flowContainer" }
+
+                },
+                {
+                  "value": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shadow": {
+    "elements": [
+      {
+        "name": "nameTitle",
+        "selector": {
+          "css": ".slds-scope>title"
+        },
+        "public": true
+      }
+    ]
+  },
+  "methods": [
+
+    {
+      "name": "waitForPageNewLead",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "nameTitle",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Boton Nuevo Lead"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet"
+  },
+  "elements": [
+    {
+      "name": "itemsVisibles",
+      "public": true,
+      "selector":{
+        "css": "one-app-nav-bar-item-root[aria-hidden='false']>a",
+        "returnAll": true
+      }
+    },
+    {
+      "name": "itemsNoVisibles",
+      "public": true,
+      "selector": {
+        "css": "one-app-nav-bar-item-root[aria-hidden='true']>a",
+        "returnAll": true
+      }
+    }
+  ]
+}

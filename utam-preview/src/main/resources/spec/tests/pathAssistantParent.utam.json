@@ -1,0 +1,97 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "author" : "mary",
+    "text" : [
+      "Selector: .runtime_sales_pathassistantPathAssistant",
+      "Prueba"
+    ]
+  },
+  "root" : true,
+  "selector" : {
+    "css" : ".runtime_sales_pathassistantPathAssistant"
+  },
+  "methods" : [
+    {
+      "description" : {
+        "text" : [
+          "Check if the drawer is expanded"
+        ],
+        "return" : "boolean value"
+      },
+      "name" : "isDrawerExpanded",
+      "compose" : [
+        {
+          "element" : "buttonWithTitle",
+          "apply" : "getAttribute",
+          "args" : [
+            {
+              "value" : "aria-expanded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description" : {
+        "text" : [
+          "Wait and get pathAssistantFields"
+        ],
+        "return" : "pathAssistantFields"
+      },
+      "name" : "getPathAssistantFields",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "pathAssistantFields"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements" : [
+    {
+      "type" : [
+        "clickable"
+      ],
+      "name" : "buttonWithTitle",
+      "public" : true,
+      "selector" : {
+        "css" : ".slds-button[title='%s']",
+        "args" : [
+          {
+            "name" : "title",
+            "type" : "string"
+          }
+        ]
+      }
+    },
+    {
+      "name" : "pathAssistantFields",
+      "type" : "utam-tests/pageObjects/pathAssistantFields",
+      "selector" : {
+        "css" : ".runtime_sales_pathassistantPathAssistantFields"
+      }
+    },
+    {
+      "type" : [
+        "clickable"
+      ],
+      "name" : "completeStepActionButton",
+      "public" : true,
+      "selector" : {
+        "css" : "button.slds-path__mark-complete"
+      }
+    }
+  ]
+}

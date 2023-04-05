@@ -1,0 +1,16 @@
+{
+  "root":true,
+  "selector": {
+    "css": ".desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet"
+  },
+  "elements": [
+    {
+      "name": "ventas",
+      "selector": {
+        "css": ".slds-context-bar__app-name"
+      },
+      "public": true
+    }
+  ]
+
+}
